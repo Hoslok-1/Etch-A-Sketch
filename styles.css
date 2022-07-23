@@ -1,19 +1,20 @@
 
 .cell {
-    border: 1px solid gray;
+    border: 1px solid rgb(0, 0, 0);
     width:20px;
     height : 20px;
-    margin-right: 2px;
+    margin-right: 0px;
   }
 
   #container
   {
     display:flex;
     justify-content: center;
+    margin-top:300px;
   }
 
-  .rows
-  {
-    display: flex;
-    flex-direction: column;
-  }
+/* .cell:hover
+{
+  background-color: black;
+  transition: 0.1s;
+} */
