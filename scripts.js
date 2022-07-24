@@ -4,6 +4,14 @@ const rows = document.getElementsByClassName('rows');
 const cells = document.getElementsByClassName('cell');
 const resize = document.getElementById('resize')
 const reset = document.getElementById('reset');
+const black = document.getElementById('makeItBlack')
+
+let myColor;
+let value = document.getElementById('makeItBlack');
+value.addEventListener('click', () => myColor = "black");
+
+let colorPicker = document.getElementById('colorpicker');
+colorPicker.addEventListener('click', () => myColor = colorPicker.value)
 
 //function to make the Grid
 function makeGrid(m)
@@ -34,11 +42,12 @@ function fillCells(numC)
             rows[i].appendChild(cell);
             cell.className = 'cell';
             cell.addEventListener("mouseenter", ()=>
-            cell.style.backgroundColor='black');
+            cell.style.backgroundColor= myColor);
         }
     }
 }
 
+value.addEventListener('click', () => myColor = "black");
 reset.addEventListener('click',resetGrid);
 
 //resets the colors on the grid by applying white background to all the cells
@@ -52,7 +61,7 @@ function resetGrid()
 
 resize.addEventListener('click',resizeGrid);
 
-//reseizes the grid by asking for a number and making a grid with
+//resizes the grid by asking for a number and making a grid with
 //that many variables by using makeGrid();
 function resizeGrid()
 {
@@ -64,6 +73,7 @@ function resizeGrid()
 
 
 let allCells = document.querySelectorAll('.cell');
+
 
 makeGrid(16);
 
