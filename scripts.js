@@ -2,14 +2,16 @@
 const container = document.getElementById('container');
 const rows = document.getElementsByClassName('rows');
 const cells = document.getElementsByClassName('cell');
+const resize = document.getElementById('resize')
+const reset = document.getElementById('reset');
 
 //function to make the Grid
-function makeGrid()
+function makeGrid(m)
 {
-    makeRows(16);
-    fillCells(16);
+    makeRows(m);
+    fillCells(m);
 }
-
+//makes numR amout of rows
 function makeRows(numR)
 {
     for(i = 0;i<numR;i++)
@@ -27,6 +29,8 @@ function fillCells(numC)
         for(j = 0; j<numC;j++)
         {
             let cell = document.createElement('div');
+            cell.style.width = '30px';
+            cell.style.height = '30px';
             rows[i].appendChild(cell);
             cell.className = 'cell';
             cell.addEventListener("mouseenter", ()=>
@@ -35,23 +39,41 @@ function fillCells(numC)
     }
 }
 
+reset.addEventListener('click',resetGrid);
+
+//resets the colors on the grid by applying white background to all the cells
 function resetGrid()
 {
+    allCells = document.querySelectorAll('.cell');
     allCells.forEach((allCells) =>{
         allCells.style.backgroundColor = "white";
     });
 }
 
+resize.addEventListener('click',resizeGrid);
 
-makeGrid();
-const allCells = document.querySelectorAll('.cell');
+//reseizes the grid by asking for a number and making a grid with
+//that many variables by using makeGrid();
+function resizeGrid()
+{
+    removeGrid();
+    let m = prompt("Enter the size of the array");
+    makeGrid(m);
+    allCells = document.querySelectorAll('.cell');
+}
 
-const reset = document.getElementById('reset');
-reset.addEventListener('click',resetGrid)
 
+let allCells = document.querySelectorAll('.cell');
 
+makeGrid(16);
 
-
+function removeGrid()
+{
+    allRows = document.querySelectorAll('.rows');
+    allRows.forEach((allRows) =>{
+        allRows.remove();
+    });
+}
 
 
 
