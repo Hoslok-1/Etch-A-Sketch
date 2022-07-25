@@ -5,6 +5,7 @@ const cells = document.getElementsByClassName('cell');
 const resize = document.getElementById('resize')
 const reset = document.getElementById('reset');
 const black = document.getElementById('makeItBlack')
+let size = document.getElementsByName('size');
 
 let myColor;
 let value = document.getElementById('makeItBlack');
@@ -37,8 +38,8 @@ function fillCells(numC)
         for(j = 0; j<numC;j++)
         {
             let cell = document.createElement('div');
-            cell.style.width = '30px';
-            cell.style.height = '30px';
+            cell.style.width = size + "px";
+            cell.style.height = size + "px" ;
             rows[i].appendChild(cell);
             cell.className = 'cell';
             cell.addEventListener("mouseenter", ()=>
@@ -67,6 +68,7 @@ function resizeGrid()
 {
     removeGrid();
     let m = prompt("Enter the size of the array");
+    size = 600/m 
     makeGrid(m);
     allCells = document.querySelectorAll('.cell');
 }
@@ -84,11 +86,6 @@ function removeGrid()
         allRows.remove();
     });
 }
-
-
-
-
-
 
 
 
