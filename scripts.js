@@ -6,6 +6,7 @@ const resize = document.getElementById('resize')
 const reset = document.getElementById('reset');
 const black = document.getElementById('makeItBlack')
 let size = document.getElementsByName('size');
+size = 37.5
 
 let myColor;
 let value = document.getElementById('makeItBlack');
@@ -56,7 +57,7 @@ function resetGrid()
 {
     allCells = document.querySelectorAll('.cell');
     allCells.forEach((allCells) =>{
-        allCells.style.backgroundColor = "white";
+        allCells.style.backgroundColor = "#c1c8e4";
     });
 }
 
