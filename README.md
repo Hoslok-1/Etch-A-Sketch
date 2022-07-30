@@ -10,4 +10,5 @@ Features:
 
 3. User can choose from multiple colors, default is black.
 
+4. Live Demo: https://hoslok-1.github.io/Etch-A-Sketch/
 NOTE: the reason the max number of cells is 100 is that, anything above a 100x100 grid would take a while to generate, potentially lag and might even crash your browser.
